@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>QinDynasty</key>
+	<dict>
+		<key>description</key>
+		<string>Qin dynasty was founded.</string>
+		<key>year</key>
+		<integer>-221</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Qin_dynasty</string>
+	</dict>
+	<key>PrideAndPrejudice</key>
+	<dict>
+		<key>description</key>
+		<string>Novel Pride and Prejudice by Jane Austen was published.</string>
+		<key>year</key>
+		<integer>1813</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Pride_and_Prejudice</string>
+	</dict>
+	<key>Confucius</key>
+	<dict>
+		<key>description</key>
+		<string>Confucius was born.</string>
+		<key>year</key>
+		<integer>-551</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Confucius</string>
+	</dict>
+	<key>Chopin</key>
+	<dict>
+		<key>description</key>
+		<string>Frédéric Chopin arrived in Paris.</string>
+		<key>year</key>
+		<integer>1831</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin</string>
+	</dict>
+	<key>Holmes</key>
+	<dict>
+		<key>description</key>
+		<string>Holmes and Moriarty both fallen to their deaths down the gorge while locked in mortal combat.</string>
+		<key>year</key>
+		<integer>1891</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/The_Final_Problem</string>
+	</dict>
+	<key>JackTheRipper</key>
+	<dict>
+		<key>description</key>
+		<string>The first of the canonical five Jack the Ripper victims&apos; body was discovered.</string>
+		<key>year</key>
+		<integer>1888</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Jack_the_Ripper</string>
+	</dict>
+	<key>Titanic</key>
+	<dict>
+		<key>description</key>
+		<string>RMS Titanic departing Southampton.</string>
+		<key>year</key>
+		<integer>1912</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin</string>
+	</dict>
+	<key>Paper</key>
+	<dict>
+		<key>description</key>
+		<string>Paper was invented by Cai Lun.</string>
+		<key>year</key>
+		<integer>105</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Cai_Lun</string>
+	</dict>
+	<key>JaneEyre</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;Jane Eyre&quot; by Charlotte Brontë was published.</string>
+		<key>year</key>
+		<integer>1847</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Jane_Eyre</string>
+	</dict>
+	<key>JinYong</key>
+	<dict>
+		<key>description</key>
+		<string>Jin Yong&apos;s first martial art novel &quot;The Book and the Sword&quot; was published.</string>
+		<key>year</key>
+		<integer>1955</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Jin_Yong</string>
+	</dict>
+	<key>WarAndPeace</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;War and Peace&quot; by Leo Tolstoy was published.</string>
+		<key>year</key>
+		<integer>1869</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/War_and_Peace</string>
+	</dict>
+	<key>HongLouMeng</key>
+	<dict>
+		<key>description</key>
+		<string>Chinese classic novel &quot;Dream of the Red Chamber&quot; published in English for the first time.</string>
+		<key>year</key>
+		<integer>1868</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Dream_of_the_Red_Chamber</string>
+	</dict>
+	<key>ThreeBody</key>
+	<dict>
+		<key>description</key>
+		<string>Chinese Sci-fi series &quot;The Three-Body Problem&quot; published in English for the firs time.</string>
+		<key>year</key>
+		<integer>2014</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/The_Three-Body_Problem</string>
+	</dict>
+	<key>MingDynasty</key>
+	<dict>
+		<key>description</key>
+		<string>Ming dynasty moved its capital to Beijing by Emperor Yongle.</string>
+		<key>year</key>
+		<integer>1421</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/History_of_Beijing</string>
+	</dict>
+	<key>TaleOfTwoCities</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;A Tale of Two Cities&quot; by Charles Dickens was published.</string>
+		<key>year</key>
+		<integer>1859</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities</string>
+	</dict>
+	<key>Harvard</key>
+	<dict>
+		<key>description</key>
+		<string>Harvard University was founded.</string>
+		<key>year</key>
+		<integer>1636</integer>
+		<key>url</key>
+		<string>http://www.harvard.edu/about-harvard/harvard-glance/history</string>
+	</dict>
+	<key>GoneWithTheWind</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;Gone with the Wind&quot; by Margaret Mitchell was published.</string>
+		<key>year</key>
+		<integer>1936</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Gone_with_the_Wind</string>
+	</dict>
+	<key>JourneyToTheWest</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;Journey to the West&quot; by Wu Cheng&apos;en was published.</string>
+		<key>year</key>
+		<integer>1592</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Journey_to_the_West</string>
+	</dict>
+	<key>HeadOfAWoman</key>
+	<dict>
+		<key>description</key>
+		<string>Leonardo da Vinci painted the &quot;Head of a Woman&quot;, also knowns as &quot;La Scapigliata&quot;.&quot;</string>
+		<key>year</key>
+		<integer>1508</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Head_of_a_Woman_(Leonardo)</string>
+	</dict>
+	<key>SymphonyNo9</key>
+	<dict>
+		<key>description</key>
+		<string>Ludwig van Beethoven&apos;s Symphony No.9 in D minor was completed.</string>
+		<key>year</key>
+		<integer>1824</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Symphony_No._9_(Beethoven)</string>
+	</dict>
+	<key>Bach</key>
+	<dict>
+		<key>description</key>
+		<string>Johann Sebastian Bach was born.</string>
+		<key>year</key>
+		<integer>1685</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Johann_Sebastian_Bach</string>
+	</dict>
+	<key>Mozart</key>
+	<dict>
+		<key>description</key>
+		<string>Wolfgang Amadeus Mozart passed away.</string>
+		<key>year</key>
+		<integer>1791</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart</string>
+	</dict>
+	<key>QueenVictoria</key>
+	<dict>
+		<key>description</key>
+		<string>Queen Victoria married to Price Albert.</string>
+		<key>year</key>
+		<integer>1840</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Queen_Victoria#Marriage</string>
+	</dict>
+	<key>LanTingJiXu</key>
+	<dict>
+		<key>description</key>
+		<string>Chinese calligrapher Wang XiZhi&apos;s most famous work &quot;Preface to the Poems Composed at the Orchid Pavilion&quot; was created.</string>
+		<key>year</key>
+		<integer>353</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Lantingji_Xu</string>
+	</dict>
+	<key>SanGuo</key>
+	<dict>
+		<key>description</key>
+		<string>&quot;Romance of the Three Kingdom&quot; first English translation by Charles Henry Brewitt-Taylor was published.</string>
+		<key>year</key>
+		<integer>1925</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Romance_of_the_Three_Kingdoms#English_translations</string>
+	</dict>
+	<key>WutheringHeights</key>
+	<dict>
+		<key>description</key>
+		<string>Novel &quot;WutheringHeights&quot; by Emily Brontë was published.</string>
+		<key>year</key>
+		<integer>1847</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Wuthering_Heights</string>
+	</dict>
+	<key>Chaucer</key>
+	<dict>
+		<key>description</key>
+		<string>Geoffrey Chaucer, known as the Father of English literature, was born.</string>
+		<key>year</key>
+		<integer>1343</integer>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Geoffrey_Chaucer</string>
+	</dict>
+</dict>
+</plist>
