@@ -326,6 +326,12 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventLabel1" destination="Q3r-dC-d2e" id="f1j-5B-8oC"/>
+                        <outlet property="eventLabel2" destination="cAe-tl-UN0" id="vB1-a7-7JG"/>
+                        <outlet property="eventLabel3" destination="IsH-BL-O35" id="K8b-Ff-cA9"/>
+                        <outlet property="eventLabel4" destination="Uge-kK-Bdh" id="fqa-lY-NHp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

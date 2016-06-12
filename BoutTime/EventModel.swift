@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameKit
 
 struct Event {
     let description: String
@@ -14,10 +15,21 @@ struct Event {
     let url: String
 }
 
-struct EventList {
+class EventList {
     var eventList: [Event] = []
     
-    //FIXME: add randomizer
+    init (eventList: [Event]) {
+        self.eventList = eventList
+    }
+    
+    func randomizeEventList() -> [Event] {
+        let randomSequence = getRandomSequence(eventList.count)
+        var randomizedEventList: [Event] = []
+        for index in randomSequence {
+            randomizedEventList.append(eventList[index])
+        }
+        return randomizedEventList
+    }
 }
 
 
@@ -48,15 +60,33 @@ class PlistConverter {
 
 class EventUnarchiver {
     class func eventListFromDictionary(dictionary: [String: AnyObject]) throws -> [Event] {
-        var eventList: [Event] = []
+        var eventListFromDict: [Event] = []
         for (key, value) in dictionary {
             if let itemDict = value as? [String : AnyObject], let description = itemDict["description"] as? String, let year = itemDict["year"] as? Int, let url = itemDict["url"] as? String {
                 let event = Event(description: description, year: year, url: url)
-                eventList.append(event)
+                eventListFromDict.append(event)
             } else {
                 throw SourceListError.InvalidValue
             }
         }
-        return eventList
+        return eventListFromDict
     }
+}
+
+//Generate an array of non-repeating random number
+
+func getRandomSequence(count: Int) ->[Int] {
+    var nums:[Int] = []
+    for i in 1...count {
+        nums.append(i-1)
+    }
+    
+    var randomNum:[Int] = []
+    while nums.count > 0 {
+        let arrayKey = GKRandomSource.sharedRandom().nextIntWithUpperBound(nums.count)
+        randomNum.append(nums[arrayKey])
+        nums.removeAtIndex(arrayKey)
+    }
+    
+    return randomNum
 }
