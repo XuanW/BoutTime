@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     let tapRec2 = UITapGestureRecognizer()
     let tapRec3 = UITapGestureRecognizer()
     let tapRec4 = UITapGestureRecognizer()
+    var tapRecGroup: [UITapGestureRecognizer] = []
     
 
     required init?(coder aDecoder: NSCoder) {
@@ -62,14 +63,15 @@ class ViewController: UIViewController {
         resetViewForNewRound()
         
         // Add tap gesture to eventLabel
-        tapRec1.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
-        tapRec2.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
-        tapRec3.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
-        tapRec4.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
-        eventLabel1.addGestureRecognizer(tapRec1)
-        eventLabel2.addGestureRecognizer(tapRec2)
-        eventLabel3.addGestureRecognizer(tapRec3)
-        eventLabel4.addGestureRecognizer(tapRec4)
+        tapRecGroup.append(tapRec1)
+        tapRecGroup.append(tapRec2)
+        tapRecGroup.append(tapRec3)
+        tapRecGroup.append(tapRec4)
+        
+        for i in 0...(eventsPerRound - 1) {
+            tapRecGroup[i].addTarget(self, action: #selector(ViewController.lauchSafariViewController))
+            eventLabelGroup[i].addGestureRecognizer(tapRecGroup[i])
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,11 +155,10 @@ class ViewController: UIViewController {
         timerLabel.hidden = true
         instructionLabel.text = "Tap events to learn more"
         roundPlayed += 1
-        
-        eventLabel1.userInteractionEnabled = true
-        eventLabel2.userInteractionEnabled = true
-        eventLabel3.userInteractionEnabled = true
-        eventLabel4.userInteractionEnabled = true
+
+        for i in 0...(eventsPerRound - 1) {
+            eventLabelGroup[i].userInteractionEnabled = true
+        }
         
         let playerAnswer = getPlayerAnswer()
         let correctAnswer = getCorrectAnswer()
@@ -201,12 +202,17 @@ class ViewController: UIViewController {
     // Helper Methods
     
     func resetViewForNewRound() {
+        for i in 0...(eventsPerRound - 1) {
+            eventLabelGroup[i].userInteractionEnabled = false
+        }
+        
         nextCorrectBtn.hidden = true
         nextWrongBtn.hidden = true
         instructionLabel.text = "Shake to complete"
         getEventsForCurrentRound()
         displayEvents()
         startTimer()
+
     }
     
     func swapLabel(UILabel1: UILabel, UILabel2: UILabel) ->(UILabel, UILabel) {
@@ -251,16 +257,21 @@ class ViewController: UIViewController {
     
     
     func lauchSafariViewController(sender: UITapGestureRecognizer) {
-        let tapRecGroup: [UITapGestureRecognizer] = [tapRec1, tapRec2, tapRec3, tapRec4]
+        var eventURL: String = ""
         
         if let index: Int = tapRecGroup.indexOf(sender), let text: String = eventLabelGroup[index].text {
-            // Retrieve the eventLabel text associated with the tapRec
+            // Retrieve the URL associated with the event description play tapped on
             for event in eventsInCurrentRound {
                 if event.description == text {
-                    print(event.url)
+                    eventURL = event.url
                 }
             }
         }
+        if let convertedURL = NSURL(string: eventURL) {
+            let svc = SFSafariViewController(URL: convertedURL)
+            presentViewController(svc, animated: true, completion: nil)
+        }
+        
     }
     
     
