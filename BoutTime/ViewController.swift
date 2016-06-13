@@ -251,12 +251,15 @@ class ViewController: UIViewController {
     
     
     func lauchSafariViewController(sender: UITapGestureRecognizer) {
-//        let tapAlert = UIAlertController(title: "Tapped", message: "You just tapped the tap view", preferredStyle: UIAlertControllerStyle.Alert)
-//        tapAlert.addAction(UIAlertAction(title: "OK", style: .Destructive, handler: nil))
-//        self.presentViewController(tapAlert, animated: true, completion: nil)
         let tapRecGroup: [UITapGestureRecognizer] = [tapRec1, tapRec2, tapRec3, tapRec4]
-        if let index: Int = tapRecGroup.indexOf(sender) {
-            print("I got tapped at \(index)")
+        
+        if let index: Int = tapRecGroup.indexOf(sender), let text: String = eventLabelGroup[index].text {
+            // Retrieve the eventLabel text associated with the tapRec
+            for event in eventsInCurrentRound {
+                if event.description == text {
+                    print(event.url)
+                }
+            }
         }
     }
     
