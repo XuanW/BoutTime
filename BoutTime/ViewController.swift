@@ -101,9 +101,30 @@ class ViewController: UIViewController {
     
     
     @IBAction func moveEvent(sender: AnyObject) {
-        print(sender.tag)
+        let labelIndex = sender.tag/2   // labelIndex indicates which eventLabel it is inside the eventLabelGroup array.
+        if (sender.tag % 2 == 1) {
+            // Push current label down
+            swapLabel(eventLabelGroup[labelIndex], UILabel2: eventLabelGroup[labelIndex+1])
+            
+        } else if (sender.tag % 2 == 0) {
+            // Push current label up
+            swapLabel(eventLabelGroup[labelIndex], UILabel2: eventLabelGroup[labelIndex-1])
+        }
+        
     }
     
+    // Helper Methods
+    func swapLabel(UILabel1: UILabel, UILabel2: UILabel) ->(UILabel, UILabel) {
+        var temp: String
+        if var label1 = UILabel1.text, var label2 = UILabel2.text {
+            temp = label1
+            label1 = label2
+            label2 = temp
+            UILabel1.text = label1
+            UILabel2.text = label2
+        }
+        return (UILabel1, UILabel2)
+    }
     
     
     
