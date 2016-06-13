@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var eventLabel3: UILabel!
     @IBOutlet weak var eventLabel4: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var nextCorrectBtn: UIButton!
+    @IBOutlet weak var nextWrongBtn: UIButton!
+    
     var eventLabelGroup: [UILabel] = []
     
     let randomizedEvents: [Event]
-    var eventsInCurentRound: [Event] = []
+    var eventsInCurrentRound: [Event] = []
     let roundsPerGame = 6
     let eventsPerRound = 4
     var roundPlayed = 0
@@ -61,23 +64,23 @@ class ViewController: UIViewController {
     }
     
     func getEventsForCurrentRound() -> [Event] {
-        if eventsInCurentRound.isEmpty {
+        if eventsInCurrentRound.isEmpty {
             for i in 0...(eventsPerRound - 1) {
                 let event = randomizedEvents[roundPlayed * eventsPerRound + i]
-                eventsInCurentRound.append(event)
+                eventsInCurrentRound.append(event)
             }
         } else {
             for i in 0...(eventsPerRound-1) {
                 let event = randomizedEvents[roundPlayed * eventsPerRound + i]
-                eventsInCurentRound[i] = event
+                eventsInCurrentRound[i] = event
             }
         }
-        return eventsInCurentRound
+        return eventsInCurrentRound
     }
     
     func displayEvents() {
         for i in 0...(eventsPerRound - 1) {
-            eventLabelGroup[i].text = eventsInCurentRound[i].description
+            eventLabelGroup[i].text = eventsInCurrentRound[i].description
         }
     }
     
@@ -95,10 +98,11 @@ class ViewController: UIViewController {
         timerLabel.text = "0:\(seconds)"
         
         if(seconds == 0)  {
-            // FIXME: add codes to judge result
+            checkAnswer()
         }
     }
     
+    // Move labels when player interacts with direction buttons
     
     @IBAction func moveEvent(sender: AnyObject) {
         let labelIndex = sender.tag/2   // labelIndex indicates which eventLabel it is inside the eventLabelGroup array.
@@ -113,7 +117,33 @@ class ViewController: UIViewController {
         
     }
     
+    // Shake to submit answer
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        checkAnswer()
+    }
+    
+    
+    func checkAnswer() {
+        timer.invalidate()
+        timerLabel.hidden = true
+        let playerAnswer = getPlayerAnswer()
+        let correctAnswer = getCorrectAnswer()
+        if playerAnswer == correctAnswer {
+            nextCorrectBtn.hidden = false
+            
+        } else {
+            nextWrongBtn.hidden = false
+        }
+    }
+    
+    
     // Helper Methods
+    
     func swapLabel(UILabel1: UILabel, UILabel2: UILabel) ->(UILabel, UILabel) {
         var temp: String
         if var label1 = UILabel1.text, var label2 = UILabel2.text {
@@ -126,6 +156,33 @@ class ViewController: UIViewController {
         return (UILabel1, UILabel2)
     }
     
+    
+    func getPlayerAnswer() -> [String] {
+        var eventsInPlayerOrder: [String] = []
+        for i in 0...(eventsPerRound - 1) {
+            if let eventLabel = eventLabelGroup[i].text {
+                eventsInPlayerOrder.append(eventLabel)
+            }
+        }
+        return eventsInPlayerOrder
+    }
+    
+    func getCorrectAnswer() -> [String] {
+        var eventsInCorrectOrder: [String] = []
+        var sortedEvents: [Event] = []
+        sortedEvents = eventsInCurrentRound.sort{
+            item1, item2 in
+            let year1 = item1.year
+            let year2 = item2.year
+            return year1 < year2
+        }
+        
+        for i in 0...(eventsPerRound - 1) {
+            eventsInCorrectOrder.append(sortedEvents[i].description)
+        }
+        
+        return eventsInCorrectOrder
+    }
     
     
     

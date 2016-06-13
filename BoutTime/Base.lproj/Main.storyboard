@@ -358,6 +358,8 @@
                         <outlet property="eventLabel2" destination="cAe-tl-UN0" id="vB1-a7-7JG"/>
                         <outlet property="eventLabel3" destination="IsH-BL-O35" id="K8b-Ff-cA9"/>
                         <outlet property="eventLabel4" destination="Uge-kK-Bdh" id="fqa-lY-NHp"/>
+                        <outlet property="nextCorrectBtn" destination="5i0-eS-pei" id="o9p-x5-7dH"/>
+                        <outlet property="nextWrongBtn" destination="KCq-qn-olc" id="0u3-5A-7Vd"/>
                         <outlet property="timerLabel" destination="JtP-XI-FD9" id="9dV-pI-HsK"/>
                     </connections>
                 </viewController>

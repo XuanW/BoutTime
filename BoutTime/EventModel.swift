@@ -61,7 +61,7 @@ class PlistConverter {
 class EventUnarchiver {
     class func eventListFromDictionary(dictionary: [String: AnyObject]) throws -> [Event] {
         var eventListFromDict: [Event] = []
-        for (key, value) in dictionary {
+        for (_, value) in dictionary {
             if let itemDict = value as? [String : AnyObject], let description = itemDict["description"] as? String, let year = itemDict["year"] as? Int, let url = itemDict["url"] as? String {
                 let event = Event(description: description, year: year, url: url)
                 eventListFromDict.append(event)
