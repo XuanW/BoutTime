@@ -406,7 +406,7 @@
                                 </constraints>
                                 <state key="normal" image="play_again"/>
                                 <connections>
-                                    <action selector="playAgain" destination="L4H-hl-AHw" eventType="touchUpInside" id="Z92-DY-wh0"/>
+                                    <segue destination="YM3-A2-cZz" kind="unwind" unwindAction="backToMainViewController:" id="9DR-Tz-k8w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -435,6 +435,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUP-Fj-w4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YM3-A2-cZz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="930.5" y="428.5"/>
         </scene>

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     var eventLabelGroup: [UILabel] = []
     
-    let randomizedEvents: [Event]
+    var randomizedEvents: [Event]
     var eventsInCurrentRound: [Event] = []
     let roundsPerGame = 6
     let eventsPerRound = 4
@@ -162,6 +162,19 @@ class ViewController: UIViewController {
         }
     }
     
+    // Unwind segue to bring back main view from result screen and restart the game
+    @IBAction func backToMainViewController(segue:UIStoryboardSegue) {
+        do {
+            let dictionary = try PlistConverter.dictionaryFromFile("HistoricalEvents", ofType: "plist")
+            let eventListFromDict = try EventUnarchiver.eventListFromDictionary(dictionary)
+            randomizedEvents = EventList(eventList: eventListFromDict).randomizeEventList()
+        } catch let error {
+            fatalError("\(error)")  // Crashes the app in the case of an error
+        }
+        score = 0
+        roundPlayed = 0
+        resetViewForNewRound()
+    }
     
     
     
