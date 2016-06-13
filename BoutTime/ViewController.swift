@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -31,6 +32,8 @@ class ViewController: UIViewController {
     var seconds = 0
     var timer = NSTimer()
     
+    /// Add tap gesture to eventLabel
+    let tapRec = UITapGestureRecognizer()
     
 
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +57,10 @@ class ViewController: UIViewController {
         eventLabelGroup.append(eventLabel4)
         
         resetViewForNewRound()
-
+        
+        // Add tap gesture to eventLabel
+        tapRec.addTarget(self, action: #selector(ViewController.tappedView))
+        eventLabel1.addGestureRecognizer(tapRec)
     }
 
     override func didReceiveMemoryWarning() {
@@ -138,6 +144,8 @@ class ViewController: UIViewController {
         timerLabel.hidden = true
         instructionLabel.text = "Tap events to learn more"
         roundPlayed += 1
+        
+        eventLabel1.userInteractionEnabled = true
         
         let playerAnswer = getPlayerAnswer()
         let correctAnswer = getCorrectAnswer()
@@ -230,6 +238,12 @@ class ViewController: UIViewController {
     }
     
     
+    func tappedView(){
+//        let tapAlert = UIAlertController(title: "Tapped", message: "You just tapped the tap view", preferredStyle: UIAlertControllerStyle.Alert)
+//        tapAlert.addAction(UIAlertAction(title: "OK", style: .Destructive, handler: nil))
+//        self.presentViewController(tapAlert, animated: true, completion: nil)
+        print("I got tapped!")
+    }
     
     
 
