@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var eventLabel3: UILabel!
     @IBOutlet weak var eventLabel4: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    
+    var eventLabelGroup: [UILabel] = []
     
     let randomizedEvents: [Event]
     var eventsInCurentRound: [Event] = []
@@ -42,10 +42,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Initialize eventLabelGroup as an array with all event labels
+        eventLabelGroup.append(eventLabel1)
+        eventLabelGroup.append(eventLabel2)
+        eventLabelGroup.append(eventLabel3)
+        eventLabelGroup.append(eventLabel4)
+        
         getEventsForCurrentRound()
         displayEvents()
         startTimer()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,16 +76,15 @@ class ViewController: UIViewController {
     }
     
     func displayEvents() {
-        eventLabel1.text = eventsInCurentRound[0].description
-        eventLabel2.text = eventsInCurentRound[1].description
-        eventLabel3.text = eventsInCurentRound[2].description
-        eventLabel4.text = eventsInCurentRound[3].description
+        for i in 0...(eventsPerRound - 1) {
+            eventLabelGroup[i].text = eventsInCurentRound[i].description
+        }
     }
     
     // Set up countdown timer
     
     func startTimer() {
-        seconds = 35
+        seconds = 60
         timerLabel.hidden = false
         timerLabel.text = "0:\(seconds)"
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.subtractTime), userInfo: nil, repeats: true)
@@ -92,6 +98,17 @@ class ViewController: UIViewController {
             // FIXME: add codes to judge result
         }
     }
+    
+    
+    @IBAction func moveEvent(sender: AnyObject) {
+        print(sender.tag)
+    }
+    
+    
+    
+    
+    
+    
 
 }
 
