@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import AudioToolbox
 
 class ViewController: UIViewController {
     
@@ -38,6 +39,10 @@ class ViewController: UIViewController {
     let tapRec3 = UITapGestureRecognizer()
     let tapRec4 = UITapGestureRecognizer()
     var tapRecGroup: [UITapGestureRecognizer] = []
+    
+    // Setup Sound
+    var correctAnswerSound: SystemSoundID = 0
+    var wrongAnswerSound: SystemSoundID = 0
     
 
     required init?(coder aDecoder: NSCoder) {
@@ -165,10 +170,32 @@ class ViewController: UIViewController {
         if playerAnswer == correctAnswer {
             nextCorrectBtn.hidden = false
             score += 1
+            loadCorrectAnswerSound()
+            playCorrectAnswerSound()
             
         } else {
             nextWrongBtn.hidden = false
+            loadWrongAnswerSound()
+            playWrongAnswerSound()
         }
+    }
+    
+    func lauchSafariViewController(sender: UITapGestureRecognizer) {
+        var eventURL: String = ""
+        
+        if let index: Int = tapRecGroup.indexOf(sender), let text: String = eventLabelGroup[index].text {
+            // Retrieve the URL associated with the event description play tapped on
+            for event in eventsInCurrentRound {
+                if event.description == text {
+                    eventURL = event.url
+                }
+            }
+        }
+        if let convertedURL = NSURL(string: eventURL) {
+            let svc = SFSafariViewController(URL: convertedURL)
+            presentViewController(svc, animated: true, completion: nil)
+        }
+        
     }
     
     // Continue with game
@@ -183,6 +210,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     // Unwind segue to bring back main view from result screen and restart the game
     @IBAction func backToMainViewController(segue:UIStoryboardSegue) {
         do {
@@ -196,6 +224,7 @@ class ViewController: UIViewController {
         roundPlayed = 0
         resetViewForNewRound()
     }
+    
     
     
     
@@ -254,24 +283,28 @@ class ViewController: UIViewController {
         
         return eventsInCorrectOrder
     }
+
     
+    // Load and play sound when answer is correct
+    func loadCorrectAnswerSound() {
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource("CorrectDing", ofType: "wav")
+        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL, &correctAnswerSound)
+    }
     
-    func lauchSafariViewController(sender: UITapGestureRecognizer) {
-        var eventURL: String = ""
-        
-        if let index: Int = tapRecGroup.indexOf(sender), let text: String = eventLabelGroup[index].text {
-            // Retrieve the URL associated with the event description play tapped on
-            for event in eventsInCurrentRound {
-                if event.description == text {
-                    eventURL = event.url
-                }
-            }
-        }
-        if let convertedURL = NSURL(string: eventURL) {
-            let svc = SFSafariViewController(URL: convertedURL)
-            presentViewController(svc, animated: true, completion: nil)
-        }
-        
+    func playCorrectAnswerSound() {
+        AudioServicesPlaySystemSound(correctAnswerSound)
+    }
+    
+    // Load and play sound when answer is wrong
+    func loadWrongAnswerSound() {
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource("IncorrectBuzz", ofType: "wav")
+        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL, &wrongAnswerSound)
+    }
+    
+    func playWrongAnswerSound() {
+        AudioServicesPlaySystemSound(wrongAnswerSound)
     }
     
     
