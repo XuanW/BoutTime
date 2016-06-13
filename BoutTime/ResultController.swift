@@ -9,11 +9,15 @@
 import UIKit
 
 class ResultController: UIViewController {
-
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    var receivedString: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scoreLabel.text = receivedString
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +25,8 @@ class ResultController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func playAgain() {
+        
+    }
 
 }

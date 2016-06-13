@@ -62,6 +62,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let resultController: ResultController = segue.destinationViewController as? ResultController {
+            resultController.receivedString = "\(score)/\(roundsPerGame)"
+        }
+    }
+    
     func getEventsForCurrentRound() -> [Event] {
         if eventsInCurrentRound.isEmpty {
             for i in 0...(eventsPerRound - 1) {
@@ -149,8 +155,7 @@ class ViewController: UIViewController {
     @IBAction func nextRound() {
         if roundPlayed == roundsPerGame {
             // Game is over
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("result") as! ResultController
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.performSegueWithIdentifier("segue", sender: nil)
             
         } else {
            resetViewForNewRound()

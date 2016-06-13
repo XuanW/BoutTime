@@ -368,6 +368,7 @@
                         <outlet property="nextCorrectBtn" destination="5i0-eS-pei" id="o9p-x5-7dH"/>
                         <outlet property="nextWrongBtn" destination="KCq-qn-olc" id="0u3-5A-7Vd"/>
                         <outlet property="timerLabel" destination="JtP-XI-FD9" id="9dV-pI-HsK"/>
+                        <segue destination="L4H-hl-AHw" kind="presentation" identifier="segue" id="91E-3u-GdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -377,7 +378,7 @@
         <!--Result Controller-->
         <scene sceneID="xNe-a6-AlI">
             <objects>
-                <viewController storyboardIdentifier="result" id="L4H-hl-AHw" customClass="ResultController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L4H-hl-AHw" customClass="ResultController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sCV-lv-fMb"/>
                         <viewControllerLayoutGuide type="bottom" id="92j-Vg-k05"/>
@@ -404,6 +405,9 @@
                                     <constraint firstAttribute="width" secondItem="5Ul-Gt-QTi" secondAttribute="height" multiplier="225:71" id="iUX-P8-T9F"/>
                                 </constraints>
                                 <state key="normal" image="play_again"/>
+                                <connections>
+                                    <action selector="playAgain" destination="L4H-hl-AHw" eventType="touchUpInside" id="Z92-DY-wh0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16078431372549018" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
@@ -426,6 +430,9 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="KD1-jt-vxI" id="CPf-vX-Mkv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUP-Fj-w4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
