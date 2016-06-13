@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextCorrectBtn: UIButton!
     @IBOutlet weak var nextWrongBtn: UIButton!
+    @IBOutlet weak var instructionLabel: UILabel!
     
     var eventLabelGroup: [UILabel] = []
     
@@ -52,9 +53,7 @@ class ViewController: UIViewController {
         eventLabelGroup.append(eventLabel3)
         eventLabelGroup.append(eventLabel4)
         
-        getEventsForCurrentRound()
-        displayEvents()
-        startTimer()
+        resetViewForNewRound()
 
     }
 
@@ -131,18 +130,43 @@ class ViewController: UIViewController {
     func checkAnswer() {
         timer.invalidate()
         timerLabel.hidden = true
+        instructionLabel.text = "Tap events to learn more"
+        roundPlayed += 1
+        
         let playerAnswer = getPlayerAnswer()
         let correctAnswer = getCorrectAnswer()
         if playerAnswer == correctAnswer {
             nextCorrectBtn.hidden = false
+            score += 1
             
         } else {
             nextWrongBtn.hidden = false
         }
     }
     
+    // Continue with game
+    
+    @IBAction func nextRound() {
+        if roundPlayed == roundsPerGame {
+            // Game is over
+        } else {
+           resetViewForNewRound()
+        }
+    }
+    
+    
+    
     
     // Helper Methods
+    
+    func resetViewForNewRound() {
+        nextCorrectBtn.hidden = true
+        nextWrongBtn.hidden = true
+        instructionLabel.text = "Shake to complete"
+        getEventsForCurrentRound()
+        displayEvents()
+        startTimer()
+    }
     
     func swapLabel(UILabel1: UILabel, UILabel2: UILabel) ->(UILabel, UILabel) {
         var temp: String

@@ -301,6 +301,9 @@
                                     <constraint firstAttribute="width" secondItem="5i0-eS-pei" secondAttribute="height" multiplier="191:48" id="FeH-Zr-x9q"/>
                                 </constraints>
                                 <state key="normal" image="next_round_success"/>
+                                <connections>
+                                    <action selector="nextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCZ-a6-yAG"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCq-qn-olc">
                                 <rect key="frame" x="102" y="547" width="172" height="43"/>
@@ -313,6 +316,9 @@
                                         <exclude reference="gwK-1t-jNx"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="nextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="1KO-ps-ceH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort events in chronological order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTf-aD-W27">
                                 <rect key="frame" x="16" y="25" width="343" height="20"/>
@@ -358,6 +364,7 @@
                         <outlet property="eventLabel2" destination="cAe-tl-UN0" id="vB1-a7-7JG"/>
                         <outlet property="eventLabel3" destination="IsH-BL-O35" id="K8b-Ff-cA9"/>
                         <outlet property="eventLabel4" destination="Uge-kK-Bdh" id="fqa-lY-NHp"/>
+                        <outlet property="instructionLabel" destination="Pyc-Sg-Dty" id="uFa-wN-NBi"/>
                         <outlet property="nextCorrectBtn" destination="5i0-eS-pei" id="o9p-x5-7dH"/>
                         <outlet property="nextWrongBtn" destination="KCq-qn-olc" id="0u3-5A-7Vd"/>
                         <outlet property="timerLabel" destination="JtP-XI-FD9" id="9dV-pI-HsK"/>
