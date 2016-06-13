@@ -149,6 +149,9 @@ class ViewController: UIViewController {
     @IBAction func nextRound() {
         if roundPlayed == roundsPerGame {
             // Game is over
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("result") as! ResultController
+            self.presentViewController(vc, animated: true, completion: nil)
+            
         } else {
            resetViewForNewRound()
         }

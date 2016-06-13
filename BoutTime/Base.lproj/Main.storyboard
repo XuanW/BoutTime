@@ -374,10 +374,10 @@
             </objects>
             <point key="canvasLocation" x="439.5" y="428.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Result Controller-->
         <scene sceneID="xNe-a6-AlI">
             <objects>
-                <viewController id="L4H-hl-AHw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="result" id="L4H-hl-AHw" customClass="ResultController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sCV-lv-fMb"/>
                         <viewControllerLayoutGuide type="bottom" id="92j-Vg-k05"/>
