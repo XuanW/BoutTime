@@ -33,7 +33,10 @@ class ViewController: UIViewController {
     var timer = NSTimer()
     
     /// Add tap gesture to eventLabel
-    let tapRec = UITapGestureRecognizer()
+    let tapRec1 = UITapGestureRecognizer()
+    let tapRec2 = UITapGestureRecognizer()
+    let tapRec3 = UITapGestureRecognizer()
+    let tapRec4 = UITapGestureRecognizer()
     
 
     required init?(coder aDecoder: NSCoder) {
@@ -59,8 +62,14 @@ class ViewController: UIViewController {
         resetViewForNewRound()
         
         // Add tap gesture to eventLabel
-        tapRec.addTarget(self, action: #selector(ViewController.tappedView))
-        eventLabel1.addGestureRecognizer(tapRec)
+        tapRec1.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
+        tapRec2.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
+        tapRec3.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
+        tapRec4.addTarget(self, action: #selector(ViewController.lauchSafariViewController))
+        eventLabel1.addGestureRecognizer(tapRec1)
+        eventLabel2.addGestureRecognizer(tapRec2)
+        eventLabel3.addGestureRecognizer(tapRec3)
+        eventLabel4.addGestureRecognizer(tapRec4)
     }
 
     override func didReceiveMemoryWarning() {
@@ -146,6 +155,9 @@ class ViewController: UIViewController {
         roundPlayed += 1
         
         eventLabel1.userInteractionEnabled = true
+        eventLabel2.userInteractionEnabled = true
+        eventLabel3.userInteractionEnabled = true
+        eventLabel4.userInteractionEnabled = true
         
         let playerAnswer = getPlayerAnswer()
         let correctAnswer = getCorrectAnswer()
@@ -238,11 +250,14 @@ class ViewController: UIViewController {
     }
     
     
-    func tappedView(){
+    func lauchSafariViewController(sender: UITapGestureRecognizer) {
 //        let tapAlert = UIAlertController(title: "Tapped", message: "You just tapped the tap view", preferredStyle: UIAlertControllerStyle.Alert)
 //        tapAlert.addAction(UIAlertAction(title: "OK", style: .Destructive, handler: nil))
 //        self.presentViewController(tapAlert, animated: true, completion: nil)
-        print("I got tapped!")
+        let tapRecGroup: [UITapGestureRecognizer] = [tapRec1, tapRec2, tapRec3, tapRec4]
+        if let index: Int = tapRecGroup.indexOf(sender) {
+            print("I got tapped at \(index)")
+        }
     }
     
     
