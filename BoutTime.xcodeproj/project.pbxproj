@@ -15,8 +15,8 @@
 		105DF4471D0C7FF0008B91CB /* HistoricalEvents.plist in Resources */ = {isa = PBXBuildFile; fileRef = 105DF4461D0C7FF0008B91CB /* HistoricalEvents.plist */; };
 		105DF4491D0E0314008B91CB /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DF4481D0E0314008B91CB /* EventModel.swift */; };
 		105DF44C1D0E57D1008B91CB /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105DF44B1D0E57D1008B91CB /* ResultController.swift */; };
-		105DF44F1D0E8961008B91CB /* CorrectDing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 105DF44D1D0E8961008B91CB /* CorrectDing.wav */; };
-		105DF4501D0E8961008B91CB /* IncorrectBuzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 105DF44E1D0E8961008B91CB /* IncorrectBuzz.wav */; };
+		105DF4531D0FCF13008B91CB /* CorrectDing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 105DF4511D0FCF13008B91CB /* CorrectDing.wav */; };
+		105DF4541D0FCF13008B91CB /* IncorrectBuzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 105DF4521D0FCF13008B91CB /* IncorrectBuzz.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		105DF4461D0C7FF0008B91CB /* HistoricalEvents.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HistoricalEvents.plist; sourceTree = "<group>"; };
 		105DF4481D0E0314008B91CB /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		105DF44B1D0E57D1008B91CB /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
-		105DF44D1D0E8961008B91CB /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = ../../BoutTimeAssetsAndMockups/AudioClips/CorrectDing.wav; sourceTree = "<group>"; };
-		105DF44E1D0E8961008B91CB /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = IncorrectBuzz.wav; path = ../../BoutTimeAssetsAndMockups/AudioClips/IncorrectBuzz.wav; sourceTree = "<group>"; };
+		105DF4511D0FCF13008B91CB /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CorrectDing.wav; sourceTree = "<group>"; };
+		105DF4521D0FCF13008B91CB /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncorrectBuzz.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +73,8 @@
 				105DF43D1D0BDE3E008B91CB /* LaunchScreen.storyboard */,
 				105DF4401D0BDE3E008B91CB /* Info.plist */,
 				105DF4461D0C7FF0008B91CB /* HistoricalEvents.plist */,
-				105DF44D1D0E8961008B91CB /* CorrectDing.wav */,
-				105DF44E1D0E8961008B91CB /* IncorrectBuzz.wav */,
+				105DF4511D0FCF13008B91CB /* CorrectDing.wav */,
+				105DF4521D0FCF13008B91CB /* IncorrectBuzz.wav */,
 			);
 			path = BoutTime;
 			sourceTree = "<group>";
@@ -111,6 +111,7 @@
 				TargetAttributes = {
 					105DF4301D0BDE3E008B91CB = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 73GVPXABC8;
 					};
 				};
 			};
@@ -137,10 +138,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105DF44F1D0E8961008B91CB /* CorrectDing.wav in Resources */,
+				105DF4531D0FCF13008B91CB /* CorrectDing.wav in Resources */,
 				105DF43F1D0BDE3E008B91CB /* LaunchScreen.storyboard in Resources */,
 				105DF43C1D0BDE3E008B91CB /* Assets.xcassets in Resources */,
-				105DF4501D0E8961008B91CB /* IncorrectBuzz.wav in Resources */,
+				105DF4541D0FCF13008B91CB /* IncorrectBuzz.wav in Resources */,
 				105DF43A1D0BDE3E008B91CB /* Main.storyboard in Resources */,
 				105DF4471D0C7FF0008B91CB /* HistoricalEvents.plist in Resources */,
 			);
@@ -269,10 +270,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BoutTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xuan-wang.BoutTime";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -280,10 +284,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BoutTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xuan-wang.BoutTime";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -306,6 +313,7 @@
 				105DF4451D0BDE3E008B91CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
